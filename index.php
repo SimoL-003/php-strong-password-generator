@@ -3,9 +3,10 @@ include_once './functions/functions.php';
 $password_length = $_GET['length'];
 
 session_start();
-$_SESSION['password'] = generatePassword($password_length);
+$password = generatePassword($password_length);
+$_SESSION['password'] = $password;
 
-if (isset($password_length)) {
+if ($password) {
     header('Location: ./result.php');
 }
 ?>
