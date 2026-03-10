@@ -28,7 +28,7 @@ session_start();
                 <!-- Password card -->
                 <div class="card shadow-sm p-4">
                     <div class="fs-5">
-                        Password:
+                        Password: <br>
                         <span class="fw-bold text-primary">
                             <?php echo $_SESSION['password'] ?>
                         </span>
