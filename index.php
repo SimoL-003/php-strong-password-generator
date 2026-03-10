@@ -31,6 +31,7 @@ if (strlen($password) > 1) {
     <h1>Password Generator</h1>
 
     <!-- FORM -->
+    <!-- TODO inserire una verifica: almeno una delle checkbox deve essere selezionata -->
     <form action="./"
           method="GET">
         <div>
@@ -39,7 +40,11 @@ if (strlen($password) > 1) {
             <input id="length"
                    name="length"
                    type="number"
-                   min="1">
+                   min="1"
+                   required>
+        </div>
+        <div>
+            <label for="charachters"></label>
         </div>
         <div>
             <label for="upper">Upper letters</label>
@@ -65,6 +70,7 @@ if (strlen($password) > 1) {
                    name="special"
                    id="special">
         </div>
+
         <button type="submit">Generate password</button>
         <button type="reset">Reset</button>
     </form>
