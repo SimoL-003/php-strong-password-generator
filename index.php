@@ -2,6 +2,12 @@
 include_once './functions/functions.php';
 $password_length = $_GET['length'];
 
+session_start();
+$_SESSION['password'] = generatePassword($password_length);
+
+if (isset($password_length)) {
+    header('Location: ./result.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +36,6 @@ $password_length = $_GET['length'];
         <button type="submit">Generate password</button>
     </form>
 
-    <!-- PASSWORD -->
-    <section>
-        <div>
-            Password: <?php echo generatePassword($password_length) ?>
-        </div>
-    </section>
 </body>
 
 </html>
