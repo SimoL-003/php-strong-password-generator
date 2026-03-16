@@ -11,13 +11,14 @@ function generatePassword($length, $charachters_admitted)
     ];
 
     $charachters = "";
-    // Add admitted charachers to the charachters string
+    // Define which charachters type are admitted
     foreach ($charachters_admitted as $key => $value) {
-        if ($value) {
+        if ($value /* value can be true or false */) {
             $charachters .= $available_charachters[$key];
         }
     }
 
+    // Add admitted charachers to the charachters string
     if (strlen($charachters) == 0) {
         foreach ($available_charachters as $available_charachter) {
             $charachters .= $available_charachter;
@@ -27,7 +28,6 @@ function generatePassword($length, $charachters_admitted)
 
     $max_num = strlen($charachters) - 1;
     $password = "";
-
     // Generate password
     for ($i = 0; $i < $length; $i++) {
         $password .= $charachters[random_int(0, $max_num)];

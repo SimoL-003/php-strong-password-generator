@@ -7,10 +7,11 @@ $charachters_admitted = [
     'numbers' => $_GET['numbers'],
     'special' => $_GET['special']
 ];
+$password = generatePassword($password_length, $charachters_admitted);
 
 session_start();
-$password = generatePassword($password_length, $charachters_admitted);
 $_SESSION['password'] = $password;
+$_SESSION['passwordLength'] = $password_length;
 
 if (strlen($password) > 1) {
     header('Location: ./result.php');
@@ -43,9 +44,9 @@ if (strlen($password) > 1) {
                       method="GET"
                       class="card shadow-sm p-4">
 
+                    <h3 class="h5 mb-3 text-secondary">Build your password</h3>
+                    <!-- Password length -->
                     <div class="mb-4">
-                        <h3 class="h5 mb-3 text-secondary">Build your password</h3>
-                        <!-- Password length -->
                         <label for="length"
                                class="form-label">Password length</label>
                         <input id="length"
